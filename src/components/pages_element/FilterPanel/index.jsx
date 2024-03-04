@@ -11,6 +11,7 @@ import {
   getRelatedProducts,
   selectFilteredProducts,
 } from "../../../features/products/productsSlice";
+import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 
 export default function FilterPanel({ hideCheckbox }) {
   const dispatch = useDispatch();
@@ -62,6 +63,7 @@ export default function FilterPanel({ hideCheckbox }) {
 
   return (
     <div className="container">
+      {/* {!hideCheckbox && <Breadcrumbs />} */}
       <div className={s.filter_wrapper}>
         <div className={s.price_filter}>
           <span>Price</span>

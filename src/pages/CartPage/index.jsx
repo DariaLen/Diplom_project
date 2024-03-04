@@ -13,6 +13,7 @@ import { IoClose } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
 import AllProductsBtn from "../../components/UI/AllProductsBtn";
 import { Link, useNavigate } from "react-router-dom";
+import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs";
 
 export default function CartPage() {
   //form

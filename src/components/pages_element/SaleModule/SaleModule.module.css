@@ -12,7 +12,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 110%; 
-
+   
     }
     .title__discount{
         text-align: start;
@@ -115,6 +115,7 @@
     border-radius: 12px;
     border: 1px solid #DDD;
     overflow: hidden;
+    max-width: 316px;
 }
   .category_wrapper:hover {
     transform: scale(1.05); /* Масштабирование до 105% относительно исходного размера */
@@ -196,7 +197,9 @@
     color: #000000;
     cursor: pointer;
 }
-
+.crumbs__container{
+    padding-top: 40px;
+}
 @media screen and (min-width: 768px) and (max-width: 1000px){
     .category_container{
         grid-template-columns:  repeat(auto-fit, minmax(220px, 1fr));;
@@ -219,7 +222,7 @@
     }
 }
 
-  @media screen and (min-width: 480px) and (max-width: 767px){
+  @media screen and (min-width: 481px) and (max-width: 767px){
     .title__discount{
         font-size: 48px;
     }
@@ -250,10 +253,11 @@
     }
   }
 
-  @media screen  and (max-width: 479px){
+  @media screen  and (max-width: 480px){
     .title__discount{
         font-size: 40px;
     }
+
     .btn__media{
         display: block;
         margin: 24px 0 56px 0;
@@ -265,10 +269,14 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
+        align-items: center;
     }
 
     .category_title{
         width:100%;
+    }
+    .title_btn{
+        justify-content: center;
     }
   }
 

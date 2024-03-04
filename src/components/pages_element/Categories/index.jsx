@@ -7,6 +7,7 @@ import AllProductsBtn from "../../UI/AllProductsBtn";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { ROOT_URL } from "../../..";
+import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 
 export default function Categories({ showQuantityCategories }) {
   const { list } = useSelector(({ categories }) => categories);
@@ -17,8 +18,18 @@ export default function Categories({ showQuantityCategories }) {
     slicedCategories = list.slice(0, showQuantityCategories);
   }
 
+  const breadcrumbs = [
+    { label: "Main page", path: "/" },
+    { label: "Categories", path: "/categories", active: true },
+  ];
+
   return (
     <div className={`${s.wrapper} container`}>
+      {!showQuantityCategories && (
+        <div className={s.crumbs__container}>
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+        </div>
+      )}
       <div className={s.title_btn}>
         <h2 className={s.title}>Categories</h2>
 

@@ -12,6 +12,14 @@
 .container__header{
     border-bottom: 1px solid #DDDDDD;
 }
+ /* (sticky) */
+.container__header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    background-color: white;
+}
 .header_logo{
     width: 70px;
     height: 70px;
@@ -138,7 +146,8 @@ a{
         flex-direction: column;
         align-items: flex-end;
         position: fixed;
-        transition:ease-in-out 2s;
+        /* transition:ease-in-out 2s; */
+        transition: transform 0.3s ease;
         padding-right: 20px;
         z-index: 10;
     }

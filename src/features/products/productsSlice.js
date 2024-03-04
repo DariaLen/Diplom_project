@@ -7,7 +7,6 @@ export const getProducts = createAsyncThunk(
   async (_, thunAPI) => {
     try {
       const res = await axios(`${ROOT_URL}/products/all`);
-      console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);

@@ -45,7 +45,8 @@ const categoryProductsSlice = createSlice({
     builder.addCase(getCategoryProducts.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase(getCategoryProducts.fulfilled, (state, { payload }) => {
+    builder.addCase( getCategoryProducts.fulfilled, ( state, {payload} ) => {
+      console.log(`categoryProducts/categoryProductsSlice.js - line: 49 ->> payload`, payload)
       state.list = payload;
       state.isLoading = false;
     });
@@ -71,47 +72,47 @@ export const selectFilteredProductsByCategory = (state) => {
     return priceA - priceB;
   });
 
-  // if (filters.category) {
-  //   filteredProducts = filteredProducts.filter((product) =>
-  //     Boolean(product.discont_price)
-  //   );
-  //   console.log("Filtered by category:", filteredProducts);
-  // }
+  if (filters.category) {
+    filteredProducts = filteredProducts.filter((product) =>
+      Boolean(product.discont_price)
+    );
+    console.log("Filtered by category:", filteredProducts);
+  }
 
-  // if (
-  //   (filters.priceRange && filters.priceRange.min !== null) ||
-  //   filters.priceRange.max !== null
-  // ) {
-  //   filteredProducts = filteredProducts.filter(
-  //     (product) =>
-  //       product.price >= filters.priceRange.min &&
-  //       product.price <= filters.priceRange.max
-  //   );
+  if (
+    (filters.priceRange && filters.priceRange.min !== null) ||
+    filters.priceRange.max !== null
+  ) {
+    filteredProducts = filteredProducts.filter(
+      (product) =>
+        product.price >= filters.priceRange.min &&
+        product.price <= filters.priceRange.max
+    );
 
-  //   console.log("Filtered by price range:", filteredProducts);
-  // }
+    console.log("Filtered by price range:", filteredProducts);
+  }
 
-  // if (sorting === "newest") {
-  //   filteredProducts.sort(
-  //     (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
-  //   );
-  // } else if (sorting === "price-high-low") {
-  //   filteredProducts.sort((a, b) => {
-  //     const priceA = a.discont_price !== null ? a.discont_price : a.price;
-  //     const priceB = b.discont_price !== null ? b.discont_price : b.price;
-  //     return priceB - priceA;
-  //   });
-  // } else if (sorting === "price-low-high") {
-  //   filteredProducts.sort((a, b) => {
-  //     const priceA = a.discont_price !== null ? a.discont_price : a.price;
-  //     const priceB = b.discont_price !== null ? b.discont_price : b.price;
-  //     return priceA - priceB;
-  //   });
-  // }
+  if (sorting === "newest") {
+    filteredProducts.sort(
+      (a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)
+    );
+  } else if (sorting === "price-high-low") {
+    filteredProducts.sort((a, b) => {
+      const priceA = a.discont_price !== null ? a.discont_price : a.price;
+      const priceB = b.discont_price !== null ? b.discont_price : b.price;
+      return priceB - priceA;
+    });
+  } else if (sorting === "price-low-high") {
+    filteredProducts.sort((a, b) => {
+      const priceA = a.discont_price !== null ? a.discont_price : a.price;
+      const priceB = b.discont_price !== null ? b.discont_price : b.price;
+      return priceA - priceB;
+    });
+  }
 
   return {
     category,
-    list,
+    list: filteredProducts,
     isLoading,
   };
 };

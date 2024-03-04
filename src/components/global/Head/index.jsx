@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../media/logo.png";
 import cart from "../../media/icon.png";
 import st from "./Header.module.css";
@@ -10,11 +9,14 @@ import { useState } from "react";
 
 export default function Header() {
   const totalItem = useSelector(selectTotalItemCount);
-  const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(true);
 
   return (
     <header className={st.container__header}>
-      <nav className={`${st.header_wrapper} container`}>
+      <nav
+        onClick={() => setNav(!nav)}
+        className={`${st.header_wrapper} container`}
+      >
         <Link to="/">
           <img className={st.header_logo} src={logo} alt="logo" />
         </Link>

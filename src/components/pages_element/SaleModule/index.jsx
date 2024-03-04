@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ROOT_URL } from "../../..";
 import FilterPanel from "../FilterPanel";
 import { selectFilteredProducts } from "../../../features/products/productsSlice";
+import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 
 export default function SaleModule({ showQuantitySaleItems, id }) {
   const productList = useSelector(selectFilteredProducts);
@@ -55,6 +56,10 @@ export default function SaleModule({ showQuantitySaleItems, id }) {
     ? `${s.addToCartButton} ${s.added}`
     : s.addToCartButton;
 
+  const breadcrumbs = [
+    { label: "Main page", path: "/" },
+    { label: "All sales", path: "/sales", active: true },
+  ];
   return (
     <div className={`${s.wrapper} container`}>
       <div>
@@ -72,7 +77,10 @@ export default function SaleModule({ showQuantitySaleItems, id }) {
       </div>
 
       {!showQuantitySaleItems && (
-        <div>
+        <div className={s.title__discount_wrapper}>
+          <div className={s.crumbs__container}>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
+          </div>
           <h2 className={s.title__discount}>Discounted items</h2>
           <FilterPanel hideCheckbox={true} />
         </div>

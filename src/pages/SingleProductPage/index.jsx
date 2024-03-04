@@ -5,19 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { ROOT_URL } from "../..";
 import s from "./SingleProductPage.module.css";
 import { addItemToCart } from "../../features/user/userSlice";
-// import { getRelatedProducts } from "../../features/products/productsSlice";
-
-// import {  useGetProductsQuery } from '../../features/api/apiSlice';
+import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs";
 
 export default function SingleProductPage({ item, data }) {
-  // Состояние для хранения информации о том,  была ли кнопка нажата
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
     setIsClicked(true); //
     setTimeout(() => setIsClicked(false), 600); // Через 600 мс возвращаем isClicked в false
   };
-
-  //Для скрытия текста
   const [showFullDescription, setShowFullDescription] = useState(false);
   const maxCharacters = 200; // Максимальное количество символов в коротком описании
 
@@ -27,11 +22,11 @@ export default function SingleProductPage({ item, data }) {
 
   const { id } = useParams();
   const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState(1);
 
   const { details, isLoading } = useSelector((state) => state.singleProduct);
+  const title = details && details.length > 0 ? details.title : "";
 
-  //cart
-  const [quantity, setQuantity] = useState(1);
   const { related, list } = useSelector(({ products }) => products);
 
   useEffect(() => {
@@ -54,22 +49,40 @@ export default function SingleProductPage({ item, data }) {
   };
 
   const handleDecrement = () => {
-    // Уменьшаем количество товара на 1
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
   const handleIncrement = () => {
-    // Увеличиваем количество товара на 1
     setQuantity(quantity + 1);
   };
-  //-----
+
+  const breadcrumbs = [
+    { label: "Main page", path: "/" },
+    // { label: "Categories", path: "/categories" },
+    { label: "All products", path: "/products/all" },
+    list &&
+      list.title && {
+        label: list.title,
+        path: `/products/categories/${id}`,
+        active: true,
+      },
+    details.length &&
+      details[0].title && {
+        label: details[0].title,
+        path: `/product/${id}`,
+        active: true,
+      },
+  ].filter((crumb) => crumb && crumb.path);
 
   return (
     <>
       {Array.isArray(details) && details.length > 0 ? (
         <div key={details[0].id} className="container">
+          <div className={s.crumbs__container}>
+            <Breadcrumbs breadcrumbs={breadcrumbs} />
+          </div>
           {details.map(
             ({ id, title, description, price, image, discont_price }) => (
               <div key={id} className={s.wrapper}>

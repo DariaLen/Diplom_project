@@ -21,7 +21,7 @@ import { getProducts } from "./features/products/productsSlice";
 import { getSingleProduct } from "./features/api/apiSlice";
 import ProductsPageByCategory from "./pages/ProductsPageByCategory";
 
-function App() {
+function App({ title }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +31,7 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="wrapper">
       <Header />
       <Routes>
         <Route path="/" element={<MainPage />} />
@@ -46,6 +46,7 @@ function App() {
         <Route path="/sales" element={<AllSales type="category" />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
       <Footer />
     </div>
   );

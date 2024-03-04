@@ -350,7 +350,9 @@ margin-left: 20px;
     animation: animate-click 0.6s ease-out forwards;
     display: block;
 }
-
+.crumbs__container{
+    padding-top: 40px;
+}
 @keyframes animate-click {
     0% {
         opacity: 1;
@@ -442,7 +444,7 @@ margin-left: 20px;
     .image {
         flex-wrap: wrap;
         display: flex;
-       width: 354px;
+       max-width: 354px;
         height: auto;
 
     }
@@ -467,7 +469,7 @@ margin-left: 20px;
     }
 }
 
-@media screen and (max-width: 479px){
+@media screen and (max-width: 480px){
     .wrapper {
         display: grid;
         grid-template-areas:

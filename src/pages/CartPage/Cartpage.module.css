@@ -308,15 +308,17 @@ color: #282828;
 
  
 
-  @media screen and (min-width: 768px) and (max-width: 1000px) {
-    /* .wrapper__content {
+  @media screen and (min-width: 768px) and (max-width: 1250px) {
+     .wrapper__content {
         display: flex;
         gap: 20px;
       }
-      .title{
+      /* .title{
         max-width: 190px;
+      } */
+      .categories_line{
+        max-width: 282px;
       }
-   
       .container__image img {
         min-width: 200px;
          height: 100%; 
@@ -338,14 +340,12 @@ color: #282828;
         box-sizing: border-box;
       }
     
-      .allProductBtn {
-        width: 100%;
-      }
-      .product__info{
+    
+      /* .product__info{
         min-width: 270px;
         padding: 12px;
         gap: 12px;
-    }
+    } */
 
       
       .count__container{
@@ -354,7 +354,15 @@ color: #282828;
       }
       .count__wrapper{
         max-width: 176px;
-      } */
+      } 
+      label{
+        margin: 0 auto;
+ 
+      }
+      .labels input,
+      .button{
+        width: 430px;
+      }
 }
 
 
@@ -432,6 +440,7 @@ color: #282828;
     }
   .product__info{
     padding: 10px;
+    gap: 25px;
   }
     .container__image img{
         max-width: 116px;
@@ -462,15 +471,16 @@ color: #282828;
     max-height:47px ;
 }
 .count__wrapper button{
-    max-width: 164px;
-    max-height:47px ;
+    width: 47px;
+    height:47px ;
 }
     .icons{
-        top: 20px;
+        top: 30px;
         right: 20px;
     }
     .form{
         width: 100%;
+
     }
    .labels label{
         width: 100%;
@@ -486,4 +496,5 @@ color: #282828;
         object-fit: cover;
         min-height: 200px;
     }
+
   }

@@ -35,7 +35,7 @@ transition: transform 4s  ease-in-out 1s;
 
 .category_container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
     grid-gap: 30px;
     max-width: 1360px;
     }
@@ -90,7 +90,9 @@ transition: transform 4s  ease-in-out 1s;
    justify-content: space-between;
    gap:32px;
 }
-
+.crumbs__container{
+    padding-top: 40px;
+}
 @media screen and (min-width: 768px) and (max-width: 1000px){
     /* .category_container{
         grid-template-columns:  repeat(auto-fit, minmax(220px, 1fr));;
