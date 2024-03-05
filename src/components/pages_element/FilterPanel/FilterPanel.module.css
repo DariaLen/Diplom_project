@@ -32,9 +32,15 @@
     align-items: center;
     gap: 16px;
     border-radius: 6px;
- 
+/*  
+    position: absolute; */
   
 }
+/* select option{
+  position: relative;
+  top: 0;
+  right: 0;
+} */
 .price_filter input{
     width: 112px;
     height: 36px;
@@ -200,4 +206,10 @@
   .select_sorter{
     font-size: 16px;
   }
+
+  select {
+    position: relative; /* Устанавливаем родительский элемент как относительно позиционированный */
+}
+
+
 }

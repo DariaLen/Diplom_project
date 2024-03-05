@@ -111,6 +111,7 @@ export default function FilterPanel({ hideCheckbox }) {
             <option value="price-high-low">price: high-low</option>
             <option value="price-low-high">price: low-high</option>
           </select>
+        
           <BsChevronDown className={s.sorter__check} />
         </div>
       </div>
