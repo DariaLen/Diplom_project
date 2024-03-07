@@ -7,10 +7,9 @@ import {
   setCategoryFilters,
   setPriceRangeFilter,
   setSorting,
-} from "../../../features/products/productsSlice";
-import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
+} from "../../../features/categoryProducts/categoryProductsSlice";
 
-export default function FilterPanel({ hideCheckbox }) {
+export default function FilterPanelCopy({ hideCheckbox }) {
   const dispatch = useDispatch();
 
   // const [searchInput, setSearchInput] = useState('');

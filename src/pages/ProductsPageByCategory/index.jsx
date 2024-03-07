@@ -3,12 +3,12 @@ import s from "./ProductsPageByCategory.module.css";
 import ProductItem from "../../components/pages_element/ProductItem";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import FilterPanel from "../../components/pages_element/FilterPanel";
 import {
   getCategoryProducts,
   selectFilteredProductsByCategory,
 } from "../../features/categoryProducts/categoryProductsSlice.js";
 import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs.jsx";
+import FilterPanelCopy from "../../components/pages_element/FilterPanel/indexcopy.jsx";
 
 export default function ProductsPageByCategory() {
   const { id } = useParams();
@@ -28,6 +28,18 @@ export default function ProductsPageByCategory() {
   }, [id]);
 
   const filteredProducts = list.filter((product) => product.categoryId === id);
+
+  console.log(
+    `ProductsPageByCategory/index.jsx - line: 32 ->> filteredProducts`,
+    filteredProducts.length,
+    list.length
+  );
+
+  console.log(
+    `ProductsPageByCategory/index.jsx - line: 38 ->> category`,
+    category
+  );
+
   const breadcrumbs = [
     { label: "Main page", path: "/" },
     { label: "Categories", path: "/categories", active: true },
@@ -61,7 +73,7 @@ export default function ProductsPageByCategory() {
             <div className={s.crumbs__container}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
             </div>
-            <FilterPanel />
+            <FilterPanelCopy />
 
             {!isLoading && category && <h2>{category.title}</h2>}
           </div>

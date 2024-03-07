@@ -21,7 +21,7 @@ const categoryProductsSlice = createSlice({
   initialState: {
     list: {
       category: null,
-      data: null,
+      data: [],
     },
     filters: {
       priceRange: { min: null, max: Infinity },
@@ -45,8 +45,11 @@ const categoryProductsSlice = createSlice({
     builder.addCase(getCategoryProducts.pending, (state) => {
       state.isLoading = true;
     });
-    builder.addCase( getCategoryProducts.fulfilled, ( state, {payload} ) => {
-      console.log(`categoryProducts/categoryProductsSlice.js - line: 49 ->> payload`, payload)
+    builder.addCase(getCategoryProducts.fulfilled, (state, { payload }) => {
+      console.log(
+        `categoryProducts/categoryProductsSlice.js - line: 49 ->> payload`,
+        payload
+      );
       state.list = payload;
       state.isLoading = false;
     });
@@ -66,7 +69,7 @@ export const selectFilteredProductsByCategory = (state) => {
 
   const { category, data } = list;
 
-  let filteredProducts = [...(data || [])].sort((a, b) => {
+  let filteredProducts = [...data].sort((a, b) => {
     const priceA = a.discont_price !== null ? a.discont_price : a.price;
     const priceB = b.discont_price !== null ? b.discont_price : b.price;
     return priceA - priceB;
