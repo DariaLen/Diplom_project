@@ -30,6 +30,10 @@ export default function ProductsPage() {
         <h2>All products</h2>
       </div>
 
+      {/* <FilterPanel 
+        actions={{1,2,3}}
+      
+      /> */}
       <FilterPanel />
       <div className={s.category_container}>
         {productList.length > 0 &&

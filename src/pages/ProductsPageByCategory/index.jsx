@@ -9,6 +9,7 @@ import {
 } from "../../features/categoryProducts/categoryProductsSlice.js";
 import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs.jsx";
 import FilterPanelCopy from "../../components/pages_element/FilterPanel/indexcopy.jsx";
+import { useBreadcrumbs } from "./hooks/useBreadCrumbs.js";
 
 export default function ProductsPageByCategory() {
   const { id } = useParams();
@@ -40,26 +41,7 @@ export default function ProductsPageByCategory() {
     category
   );
 
-  const breadcrumbs = [
-    { label: "Main page", path: "/" },
-    { label: "Categories", path: "/categories", active: true },
-    category &&
-      category.title && {
-        label: category.title,
-        path: `/products/categories/${id}`,
-        active: true,
-      },
-    // {
-    //   label: `${list.length && list[0].title}`,
-    //   path: `/product/${id}`,
-    //   active: true,
-    // },
-    ...filteredProducts.map((product) => ({
-      label: product.title,
-      path: `/product/${product.id}`,
-      active: true,
-    })),
-  ].filter((crumb) => crumb && crumb.path);
+  const breadcrumbs = useBreadcrumbs(category);
 
   if (isLoading) {
     return <div> Loading ... </div>;
@@ -73,6 +55,11 @@ export default function ProductsPageByCategory() {
             <div className={s.crumbs__container}>
               <Breadcrumbs breadcrumbs={breadcrumbs} />
             </div>
+
+            {/* //TODO 
+            /**
+              * refactor to FilterPanel with props...
+              **/}
             <FilterPanelCopy />
 
             {!isLoading && category && <h2>{category.title}</h2>}
