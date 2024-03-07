@@ -69,7 +69,7 @@ export const selectFilteredProductsByCategory = (state) => {
 
   const { category, data } = list;
 
-  let filteredProducts = [...data].sort((a, b) => {
+  let filteredProducts = [...(data || [])].sort((a, b) => {
     const priceA = a.discont_price !== null ? a.discont_price : a.price;
     const priceB = b.discont_price !== null ? b.discont_price : b.price;
     return priceA - priceB;

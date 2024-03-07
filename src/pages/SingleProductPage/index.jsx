@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { getSingleProduct } from "../../features/api/apiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { ROOT_URL } from "../..";
@@ -40,6 +40,10 @@ export default function SingleProductPage({ item, data }) {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
+  const { state } = useLocation();
+
+  console.log(`SingleProductPage/index.jsx - line: 47 ->> state`, state);
+
   if (isLoading) {
     return <p>Loading...</p>;
   }
@@ -58,16 +62,31 @@ export default function SingleProductPage({ item, data }) {
     setQuantity(quantity + 1);
   };
 
+  console.log(`SingleProductPage/index.jsx - line: 61 ->> list`, list);
+
+  //TODO
+  /**
+   *
+   *  1
+   * navigate ('path', state: {breadcrumbs})
+   *
+   * 2
+   * history stack [...]
+   *
+   *
+   *
+   *
+   **/
+
   const breadcrumbs = [
     { label: "Main page", path: "/" },
     // { label: "Categories", path: "/categories" },
     { label: "All products", path: "/products/all" },
-    list &&
-      list.title && {
-        label: list.title,
-        path: `/products/categories/${id}`,
-        active: true,
-      },
+    // list && {
+    //   label: list.title,
+    //   path: `/products/categories/${id}`,
+    //   active: true,
+    // },
     details.length &&
       details[0].title && {
         label: details[0].title,

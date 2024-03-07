@@ -19,22 +19,12 @@ export default function ProductsPageByCategory() {
     selectFilteredProductsByCategory
   );
 
-  console.log(`ProductsPageByCategory/index.jsx - line: 20 ->> list`, list);
-
   useEffect(() => {
     if (!id) {
       return;
     }
     dispatch(getCategoryProducts(id));
   }, [id]);
-
-  const filteredProducts = list.filter((product) => product.categoryId === id);
-
-  console.log(
-    `ProductsPageByCategory/index.jsx - line: 32 ->> filteredProducts`,
-    filteredProducts.length,
-    list.length
-  );
 
   console.log(
     `ProductsPageByCategory/index.jsx - line: 38 ->> category`,
@@ -67,7 +57,11 @@ export default function ProductsPageByCategory() {
           <div className={s.category_container}>
             {list.length > 0 &&
               list.map((elem) => (
-                <ProductItem data={elem} key={elem.id + elem.title} />
+                <ProductItem
+                  data={elem}
+                  category={category}
+                  key={elem.id + elem.title}
+                />
               ))}
             {!isLoading && (!list || list.length === 0) && (
               <div>Sorry no products</div>
