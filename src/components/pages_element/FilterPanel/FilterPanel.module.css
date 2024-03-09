@@ -32,15 +32,9 @@
     align-items: center;
     gap: 16px;
     border-radius: 6px;
-/*  
-    position: absolute; */
   
 }
-/* select option{
-  position: relative;
-  top: 0;
-  right: 0;
-} */
+
 .price_filter input{
     width: 112px;
     height: 36px;
@@ -58,7 +52,6 @@
 }
 .price_filter input:focus , .sorter .select_sorter:focus  {
     outline: none;
-    /* border: 1px solid #393; */
     background-color: #F1F3F4;
 }
 .checkbox{
@@ -76,7 +69,7 @@
 .check:checked {
     background-color:  #393;
   }
-/* ---------- */
+
   .checkbox.style_c {
     display: inline-block;
     position: relative;
@@ -149,7 +142,7 @@
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;
-         padding: 4px;  /* устанавливаем желаемый размер галочки */
+         padding: 4px;  
 }
 .sorter{
     position: relative;
@@ -208,7 +201,7 @@
   }
 
   select {
-    position: relative; /* Устанавливаем родительский элемент как относительно позиционированный */
+    position: relative;
 }
 
 

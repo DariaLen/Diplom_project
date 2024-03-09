@@ -1,12 +1,11 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import s from "../ProductItem/ProductItem.module.css";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { ROOT_URL } from "../../..";
-// import { getRelatedProducts } from "../../../features/products/productsSlice";
 import { addItemToCart } from "../../../features/user/userSlice";
 
-export default function ProductItem({ data, category }) {
+export default function ProductItem({ data, breadcrumbState }) {
   const { id, title, image, price, discont_price } = data;
 
   const dispatch = useDispatch();
@@ -20,27 +19,13 @@ export default function ProductItem({ data, category }) {
     setIsAdded(true);
   };
 
-  console.log(`ProductItem/index.jsx - line: 23 ->> category`, category);
-
-  const handleClickCard = useCallback(() => {
+  const handleClickCard = () => {
     let state = null;
-
-    if (!category) {
-      const { title, id } = category;
-
-      state = [
-        { label: "Main page", path: "/" },
-        { label: "Categories", path: "/categories", active: true },
-        {
-          label: title,
-          path: `/products/categories/${id}`,
-          active: true,
-        },
-      ];
+    if (breadcrumbState) {
+      state = breadcrumbState;
     }
-
     navigate(`/products/${id}`, { state });
-  }, [category]);
+  };
 
   //added
   useEffect(() => {

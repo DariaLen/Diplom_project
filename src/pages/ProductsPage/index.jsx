@@ -11,15 +11,13 @@ import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs";
 
 export default function ProductsPage() {
   const productList = useSelector(selectFilteredProducts);
-  // const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
   const breadcrumbs = [
     { label: "Main page", path: "/" },
     { label: "All products", path: "/products/all", active: true },
   ];
+
+  const breadcrumbState = [{ label: "All products", path: "/products/all" }];
 
   return (
     <div className={`${s.wrapper} container`}>
@@ -29,16 +27,15 @@ export default function ProductsPage() {
       <div className={s.title}>
         <h2>All products</h2>
       </div>
-
-      {/* <FilterPanel 
-        actions={{1,2,3}}
-      
-      /> */}
       <FilterPanel />
       <div className={s.category_container}>
         {productList.length > 0 &&
           productList.map((elem) => (
-            <ProductItem data={elem} key={elem.id + elem.title} />
+            <ProductItem
+              data={elem}
+              breadcrumbState={breadcrumbState}
+              key={elem.id + elem.title}
+            />
           ))}
         {productList.length === 0 && <div>Sorry no products</div>}
       </div>

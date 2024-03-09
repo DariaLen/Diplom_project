@@ -1,4 +1,3 @@
-/* import {img} from "../../media/image" */
 
 .wrapper{
     background-image: url('../../media/img.jpg') ;
@@ -16,7 +15,7 @@ h1{
     font-style: normal;
     font-weight: 700;
     line-height: 110%; 
-    /* white-space: pre-line; */
+
 }
 .container{
     padding: 80px 40px;

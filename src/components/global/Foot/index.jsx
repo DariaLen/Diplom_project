@@ -53,13 +53,13 @@ export default function Footer() {
         <iframe
           width="1360"
           height="350"
-          frameborder="0"
+          frameBorder="0"
           scrolling="no"
           // marginheight="0"
           // marginwidth="0"
           id="gmap_canvas"
           src="https://maps.google.com/maps?width=1360&amp;height=350&amp;hl=en&amp;q=Tell-Ran.de%20Linkstra%C3%9Fe%C2%A02,%208%C2%A0OG,%20%20Deutschland%20Berlin+(Starta%20Institute)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        ></iframe>{" "}
+        ></iframe>
         <script
           type="text/javascript"
           src="https://embedmaps.com/google-maps-authorization/script.js?id=5cc8523dabbd9cad7907fe9282ccd44115cfcb21"

@@ -8,9 +8,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPriceRangeFilter } from "../../features/products/productsSlice";
 
 export default function MainPage() {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0)
-  // }, [])
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dispatch = useDispatch();
   const {

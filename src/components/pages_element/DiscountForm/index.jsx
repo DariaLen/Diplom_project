@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import image from "../../media/discount_img.png";
 import { useForm } from "react-hook-form";
-
-// import style from '../../../styles/Styles.module.css'
 import s from "./DiscountForm.module.css";
 
 export default function DiscountForm() {
@@ -13,14 +11,12 @@ export default function DiscountForm() {
     reset,
   } = useForm();
 
-  // const [isAdded, setIsAdded] = useState(false);
   const handleDiscountSubmit = (data) => {
     console.log(data);
     reset();
   };
 
   //added
-
   useEffect(() => {
     let timeoutId;
     if (isSubmitSuccessful) {
@@ -73,7 +69,6 @@ export default function DiscountForm() {
                     {errors.name.message}
                   </span>
                 )}
-                {/* <p className={s.error__message}>{errors.name?.message}</p> */}
               </label>
               <label htmlFor="phone">
                 <input
@@ -118,10 +113,6 @@ export default function DiscountForm() {
               >
                 {isSubmitSuccessful ? "Request Submitted" : "Get a discount"}
               </button>
-
-              {/* <p className={s.form__end}>
-                {isSubmitSuccessful && "Thank you!"}
-              </p> */}
             </form>
           </div>
         </div>

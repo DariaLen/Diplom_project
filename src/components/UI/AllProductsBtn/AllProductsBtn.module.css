@@ -1,5 +1,4 @@
 .allProducts_btn{
-    /* display: inline-block; */
     display: inline-flex;
     color: #8B8B8B;
     text-align: center;
@@ -30,7 +29,6 @@
   }
   @media screen and (min-width: 768px) and (max-width: 1250px){
     .allProducts_btn{
-      /* display: inline-flex; */
    width: 128px;
    height: 34px;
    padding: 0;

@@ -9,7 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 
 // export  const ROOT_URL = 'http://localhost:3333'
 export const ROOT_URL = "https://backend-diplom-project-1.onrender.com";
-//https://backend-diplom-project-1.onrender.com/
+
 export const selectRootUrl = (state) => state.config.ROOT_URL;
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

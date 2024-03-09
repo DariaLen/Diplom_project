@@ -1,28 +1,7 @@
-// import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// import { ROOT_URL } from '../..'
-
-// export const apiSlice = createApi({
-
-//     reducerPath: 'api',
-//     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3333'}),
-//     tagTypes: ['Product'],
-//     endpoints:( builder) => ({
-//         getProducts: builder.query({
-//             query: ({ id }) => `/products/${id}`,
-//             providesTags: ['Product'],
-//         })
-//     })
-// })
-
-// export const { useGetProductsQuery } = apiSlice
-
-// export default apiSlice.reducer
-
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { ROOT_URL } from "../..";
 
-// thunk для получения одного продукта
 export const getSingleProduct = createAsyncThunk(
   "product/getProduct",
   async (id, thunkAPI) => {
@@ -36,15 +15,6 @@ export const getSingleProduct = createAsyncThunk(
   }
 );
 
-//  Slice для управления состоянием одного продукта
-
-//TODO
-/**
- * refactor
- *
- * rename singleProductSlice
- *
- **/
 const apiSlice = createSlice({
   name: "product",
   initialState: {
@@ -66,5 +36,4 @@ const apiSlice = createSlice({
   },
 });
 
-// export const {} = apiSlice.actions; //?
 export default apiSlice.reducer;

@@ -1,8 +1,4 @@
-import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import style from "../../../styles/Styles.module.css";
 import s from "./Categories.module.css";
-// import { fetchCategories } from "../../../asyncActions/products";
 import AllProductsBtn from "../../UI/AllProductsBtn";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";

@@ -26,36 +26,10 @@
 
     }
 .category_container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(316px, 1fr));
-    grid-gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     max-width: 1360px;
-    }
-.category_img{
-    /* width: 316px; */
-    width: 100%;
-    height: 284px;
-    background:  lightgray 50% / cover no-repeat;
-    object-fit: cover;
-    margin-bottom: 20px;
-    display: block;
-    }
-
-    .image_container{
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px solid #DDD;
-    }
-    .discount_label{
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        background-color: #339933 ;
-        color: white;
-        padding: 4px 8px;
-        justify-content: flex-end;
-        align-items: flex-start;
-        border-radius: 6px;
     }
 
     .category_line_container{
@@ -72,54 +46,6 @@
     }
 
 
-.content_wrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 0 32px 32px 32px;
-    }
-
-.category_title{
-    color:  #282828;
-    text-align: center;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 130%; /* 26px */
-
-    white-space: nowrap;  
-    overflow: hidden;    
-    text-overflow: ellipsis;  
-    display: block;
-    width:252px ;
-    position: relative;
-}
-
-.category_title::before{
-    content: attr(title);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.category_wrapper{
-    display: flex;
-    flex-direction: column;
-    height: 418px;
-    transition: transform 0.3s ease;
-    border-radius: 12px;
-    border: 1px solid #DDD;
-    overflow: hidden;
-    max-width: 316px;
-}
-  .category_wrapper:hover {
-    transform: scale(1.05); /* Масштабирование до 105% относительно исходного размера */
-  }
 .title_btn{
     display: flex;
     height: 70px;
@@ -128,17 +54,7 @@
    justify-content: space-between;
    gap:32px;
 }
-.original_price{
-    text-decoration: line-through;
-    color:#8B8B8B;
-    font-family: Montserrat;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 130%; 
-    text-align: end;
 
-}
 .normal_price{
     color:  #282828;
     font-family: Montserrat;
@@ -147,22 +63,6 @@
     font-weight: 600;
     line-height: 110%;
 }
-.discounted_price{
-    color:  #282828;
-    font-family: Montserrat;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 110%;
-}
-.price{
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    gap: 16px;
-}
-
-/* для стилизации кнопки и управления ее видимостью при наведении */
 
 .category_wrapper{
     position: relative;
@@ -206,10 +106,6 @@
         grid-gap: 10px;
         max-width:100%;
     }
-    .category_img{
-        width: 100%;
-        
-    }
     .categories_line{
         width: 100%;
     }
@@ -241,9 +137,9 @@
     .category_container{
         grid-template-columns: repeat(2, minmax(210px, 1fr));
         grid-gap: 20px;
-        /* max-width: 440px; */
+
     }
-    .discounted_price
+
     .normal_price {
         font-size: 36px;
     }
@@ -272,9 +168,6 @@
         align-items: center;
     }
 
-    .category_title{
-        width:100%;
-    }
     .title_btn{
         justify-content: center;
     }

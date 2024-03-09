@@ -1,6 +1,3 @@
-/* .contact_wrapper{
-
-} */
 p{
     padding: 0;
     margin: 0;
@@ -19,7 +16,6 @@ p{
     font-style: normal;
     font-weight: 700;
     line-height: 110%;
-    /* margin-top: 80px; */
     }
 
 .phone_form{
@@ -105,35 +101,6 @@ iframe{
     border-radius:  12px;
     width: 100%;
 }
-/* @media (max-width: 480px){
-
-.contact_module_wrap {
-    display: flex;
-    flex-direction: column;
-}
-.contact_wrapper,
-.contact_header,
-.contact_work_hour,
-.social_form,
-.phone_form{
-    width: 440px;
-
-}
-.data_text{
-    font-size: 28px;
-    word-wrap: break-word;
-    padding: 0;
-    margin: 0;
-}
-.social_form{
-    flex-direction: row;
-}
-.map,
-iframe{
-    width: 440px;
-}
-} */
-
 
 @media screen and (min-width: 768px) and (max-width: 1000px){
     .contact_module_wrap{

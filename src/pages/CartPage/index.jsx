@@ -45,19 +45,16 @@ export default function CartPage() {
     };
     console.log(formData, "formData...");
 
-    reset(); // Сбрасываем значения формы
-
+    reset();
     dispatch(clearCart());
-    // окно с поздравлением
     setIsSubmitted(true);
     setShowCongratulations(true);
   };
 
-  // для закрытия окна с поздравлениями
   const handleCloseCongratulations = () => {
     setShowCongratulations(false);
   };
-  // const [quantity, setQuantity] = useState(1);
+
   const cart = useSelector((state) => state.user.cart);
 
   const calculateTotalCount = (cart) => {
@@ -78,7 +75,7 @@ export default function CartPage() {
     event.stopPropagation();
     dispatch(deleteProduct({ id: itemId }));
   };
-  // Общая стоимость товаров в корзине
+
   const totalPrice = cart
     .reduce((total, item) => {
       return (
@@ -89,8 +86,6 @@ export default function CartPage() {
       );
     }, 0)
     .toFixed(2);
-
-  //const roundedTotalPrice = Math.round(totalPrice * 100) / 100; // Округление до двух знаков после запятой
 
   const totalCount = calculateTotalCount(cart);
   console.log(cart, "cart....");
@@ -200,9 +195,6 @@ export default function CartPage() {
                       <span className={s.normal_price}>{`$${item.price}`}</span>
                     </div>
                   )}
-                  {/* <button onClick={() => handleAddToCart(item)}>
-                  Add one more{" "}
-                </button> */}
                 </div>
               </div>
             </div>
@@ -215,7 +207,6 @@ export default function CartPage() {
           >
             <div className={s.orders__details}>
               <h3>Order details</h3>
-              {/* <h3>{totalCount} items</h3> */}
               <span className={s.items}>{cart.length} items</span>
               <div className={s.total_price__wrapper}>
                 <span className={s.total__price}>Total</span>

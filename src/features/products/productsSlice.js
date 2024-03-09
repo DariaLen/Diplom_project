@@ -54,7 +54,6 @@ const productsSlice = createSlice({
 
 export const selectFilteredProducts = (state) => {
   const { list, filters, sorting } = state.products;
-
   let filteredProducts = [...list].sort((a, b) => {
     const priceA = a.discont_price !== null ? a.discont_price : a.price;
     const priceB = b.discont_price !== null ? b.discont_price : b.price;
@@ -99,13 +98,7 @@ export const selectFilteredProducts = (state) => {
   return filteredProducts;
 };
 
-export const {
-  // setSearchFilter,
-  // toggleCategoryFilter,
-  setCategoryFilters,
-  setPriceRangeFilter,
-  setSorting,
-  // getRelatedProducts,
-} = productsSlice.actions;
+export const { setCategoryFilters, setPriceRangeFilter, setSorting } =
+  productsSlice.actions;
 
 export default productsSlice.reducer;

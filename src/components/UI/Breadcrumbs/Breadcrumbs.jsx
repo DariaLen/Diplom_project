@@ -2,7 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import s from "./Breadcrumbs.module.css";
 
-export default function Breadcrumbs({ breadcrumbs }) {
+export default function Breadcrumbs ( {breadcrumbs} ) {
+  if ( !breadcrumbs || breadcrumbs.length === 0 ) {
+    return undefined;
+  }
+
   return (
     <div className={s.btn_div}>
       {breadcrumbs.map((breadcrumb, index) => (

@@ -22,24 +22,22 @@ body {
 
 }
 
-
-
 /* scroll style */
 
-/* Для Firefox */
+/*  Firefox */
 body {
-  scrollbar-color:#393 #FFFFFF; /* Зеленый цвет ползунка, белый цвет фона */
+  scrollbar-color:#393 #FFFFFF; 
 }
 
-/* Для остальных браузеров (включая Chrome) */
+/*  Chrome */
 body::-webkit-scrollbar {
-  width: 8px; /* Ширина скроллбара */
+  width: 4px; 
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #393; /* Зеленый цвет ползунка */
+  background-color: #393;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #FFFFFF; /* Белый цвет фона */
+  background-color: #FFFFFF; 
 }

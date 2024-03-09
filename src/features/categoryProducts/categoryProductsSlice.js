@@ -15,7 +15,6 @@ export const getCategoryProducts = createAsyncThunk(
   }
 );
 
-// createSlice для хранения списка товаров в категории.
 const categoryProductsSlice = createSlice({
   name: "categoryProducts",
   initialState: {
@@ -46,10 +45,6 @@ const categoryProductsSlice = createSlice({
       state.isLoading = true;
     });
     builder.addCase(getCategoryProducts.fulfilled, (state, { payload }) => {
-      console.log(
-        `categoryProducts/categoryProductsSlice.js - line: 49 ->> payload`,
-        payload
-      );
       state.list = payload;
       state.isLoading = false;
     });
@@ -60,11 +55,6 @@ const categoryProductsSlice = createSlice({
 });
 
 export const selectFilteredProductsByCategory = (state) => {
-  console.log(
-    `categoryProducts/categoryProductsSlice.js - line: 64 ->> state.categoryProducts`,
-    state.categoryProducts
-  );
-
   const { list, filters, sorting, isLoading } = state.categoryProducts;
 
   const { category, data } = list;
@@ -79,7 +69,6 @@ export const selectFilteredProductsByCategory = (state) => {
     filteredProducts = filteredProducts.filter((product) =>
       Boolean(product.discont_price)
     );
-    console.log("Filtered by category:", filteredProducts);
   }
 
   if (
@@ -91,8 +80,6 @@ export const selectFilteredProductsByCategory = (state) => {
         product.price >= filters.priceRange.min &&
         product.price <= filters.priceRange.max
     );
-
-    console.log("Filtered by price range:", filteredProducts);
   }
 
   if (sorting === "newest") {
@@ -120,13 +107,7 @@ export const selectFilteredProductsByCategory = (state) => {
   };
 };
 
-export const {
-  // setSearchFilter,
-  // toggleCategoryFilter,
-  setCategoryFilters,
-  setPriceRangeFilter,
-  setSorting,
-  // getRelatedProducts,
-} = categoryProductsSlice.actions;
+export const { setCategoryFilters, setPriceRangeFilter, setSorting } =
+  categoryProductsSlice.actions;
 
 export default categoryProductsSlice.reducer;

@@ -2,14 +2,11 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ROOT_URL } from "../..";
 import axios from "axios";
 
-// export const ROOT_URL = 'http://localhost:3333'
-
 export const getCategories = createAsyncThunk(
   "categories/getCategories",
   async (_, thunAPI) => {
     try {
       const res = await axios.get(`${ROOT_URL}/categories/all`);
-      console.log(res);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -23,10 +20,6 @@ const categoriesSlice = createSlice({
   initialState: {
     list: [],
     isLoading: false,
-    // related: [],
-    // isLoading: false,
-    // minPrice: '',
-    // maxPrice: '',
   },
   extraReducers: (builder) => {
     builder.addCase(getCategories.pending, (state) => {

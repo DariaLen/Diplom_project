@@ -13,25 +13,9 @@ import Breadcrumbs from "../../UI/Breadcrumbs/Breadcrumbs";
 export default function FilterPanel({ hideCheckbox, actions }) {
   const dispatch = useDispatch();
 
-  //TODO
-  /**
-   * refactor with props
-   **/
-  // const { setCategoryFilters, setPriceRangeFilter, setSorting } = actions;
-
-  // const [searchInput, setSearchInput] = useState('');
   const [priceRange, setPriceRange] = useState({ min: null, max: Infinity });
   const [sortingOption, setSortingOption] = useState("default");
   const [categoryFilter, setCategoryFilter] = useState(false);
-
-  //------
-  // const handleSearchInputChange = (event) => {
-  //   setSearchInput(event.target.value);
-  // };
-
-  // const handleSearch = () => {
-  //   dispatch(setSearchFilter(searchInput));
-  // };
 
   const handleCategoryToggle = () => {
     setCategoryFilter(!categoryFilter);
@@ -60,13 +44,8 @@ export default function FilterPanel({ hideCheckbox, actions }) {
     dispatch(setSorting(event.target.value));
   };
 
-  // uncontrolled
-  // useRef() bad practice
-  //
-
   return (
     <div className="container">
-      {/* {!hideCheckbox && <Breadcrumbs />} */}
       <div className={s.filter_wrapper}>
         <div className={s.price_filter}>
           <span>Price</span>

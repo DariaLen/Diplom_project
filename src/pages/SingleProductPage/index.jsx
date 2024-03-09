@@ -6,15 +6,17 @@ import { ROOT_URL } from "../..";
 import s from "./SingleProductPage.module.css";
 import { addItemToCart } from "../../features/user/userSlice";
 import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs";
+import { useBreadcrumbs } from "./hooks/useBreadcrumbs";
 
 export default function SingleProductPage({ item, data }) {
   const [isClicked, setIsClicked] = useState(false);
+
   const handleClick = () => {
     setIsClicked(true); //
-    setTimeout(() => setIsClicked(false), 600); // Через 600 мс возвращаем isClicked в false
+    setTimeout(() => setIsClicked(false), 600);
   };
   const [showFullDescription, setShowFullDescription] = useState(false);
-  const maxCharacters = 200; // Максимальное количество символов в коротком описании
+  const maxCharacters = 200;
 
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription);
@@ -40,9 +42,9 @@ export default function SingleProductPage({ item, data }) {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
-  const { state } = useLocation();
+  console.log(`SingleProductPage/index.jsx - line: 47 ->> details`, details);
 
-  console.log(`SingleProductPage/index.jsx - line: 47 ->> state`, state);
+  const breadcrumbs = useBreadcrumbs(details);
 
   if (isLoading) {
     return <p>Loading...</p>;
@@ -62,39 +64,6 @@ export default function SingleProductPage({ item, data }) {
     setQuantity(quantity + 1);
   };
 
-  console.log(`SingleProductPage/index.jsx - line: 61 ->> list`, list);
-
-  //TODO
-  /**
-   *
-   *  1
-   * navigate ('path', state: {breadcrumbs})
-   *
-   * 2
-   * history stack [...]
-   *
-   *
-   *
-   *
-   **/
-
-  const breadcrumbs = [
-    { label: "Main page", path: "/" },
-    // { label: "Categories", path: "/categories" },
-    { label: "All products", path: "/products/all" },
-    // list && {
-    //   label: list.title,
-    //   path: `/products/categories/${id}`,
-    //   active: true,
-    // },
-    details.length &&
-      details[0].title && {
-        label: details[0].title,
-        path: `/product/${id}`,
-        active: true,
-      },
-  ].filter((crumb) => crumb && crumb.path);
-
   return (
     <>
       {Array.isArray(details) && details.length > 0 ? (
@@ -108,8 +77,6 @@ export default function SingleProductPage({ item, data }) {
                 <div className={s.image}>
                   <img src={ROOT_URL + image} alt={title} className={s.image} />
                 </div>
-                {/* <section> */}
-                {/* <div className={s.price__container}> */}
                 <h2 className={s.title}>{title}</h2>
                 <div className={s.price}>
                   {discont_price !== null ? (
@@ -142,7 +109,7 @@ export default function SingleProductPage({ item, data }) {
                     onClick={addToCart}
                   >
                     {" "}
-                    Add to cart{" "}
+                    Add to cart
                   </button>
                 </div>
 
@@ -163,15 +130,11 @@ export default function SingleProductPage({ item, data }) {
                     </button>
                   )}
                 </div>
-                {/* </div> */}
-                {/* </section> */}
               </div>
             )
           )}
         </div>
       ) : null}
-
-      {/* </Link> */}
     </>
   );
 }
