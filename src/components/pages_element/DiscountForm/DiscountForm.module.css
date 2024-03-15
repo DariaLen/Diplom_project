@@ -8,6 +8,8 @@
     flex-direction: column;
     gap: 24px;
     box-sizing: border-box;
+
+    width: 100%;
 }
 .h2{
     color:  #FFF;
@@ -76,7 +78,11 @@ label {
     color: red;
 }
 .button{
-    width: 516px;
+    /* width: 516px; */
+
+
+    width: 100%;
+    max-width: 516px;
     padding: 16px;
 
     color:  #282828;
@@ -114,6 +120,13 @@ label {
     display: none;
 }
 
+.discount_wrapper img{
+    max-width: 100%;
+    height: auto;
+}
+.wrapper__form{
+    width: 100%;
+}
 @media screen and (min-width: 768px) and (max-width: 1000px){
     .button{
         width: 100%;
@@ -129,6 +142,7 @@ label {
     }
     .discount_wrapper img{
         max-width: 450px;
+
         transform: translateY(34px);
     }
     .discount_wrapper {
@@ -142,6 +156,7 @@ label {
   
     .form{
         width: 100%;
+        gap: 15px;
     }
     .discount_wrapper{
         display: flex;
@@ -155,22 +170,25 @@ label {
         display: flex;
     }
     .button{
-        width: 400px;
+        /* width: 400px; */
+        width: 100%;
         font-size: 18px;
     }
     .h2{
         font-size: 48px;
-        max-width: 400px;
+        /* max-width: 400px; */
+        max-width: 100%;
     }
     .form>label>input{
-        width: 400px;
+        /* width: 400px; */
+        width: 100%;
     }
     .discount_wrapper img {
         display: none;
-        width: 400px;
+        /* width: 400px; */
     }
     .form{
-        gap: 8px;
+        /* gap: 8px; */
        max-width: 400px;
     }
     .container{
@@ -208,7 +226,8 @@ label {
         
     }
     .button{
-        width: 280px;
+        /* width: 280px; */
+        width: 100%;
         font-size: 18px;
     }
     .h2{
@@ -219,10 +238,10 @@ label {
     }
     .discount_wrapper img {
         display: none;
-        width: 400px;
+        /* width: 400px; */
     }
     .form{
-        gap: 8px;
+        gap: 15px;
        max-width: 400px;
     }
     .container{
@@ -231,12 +250,13 @@ label {
         padding: 24px 20px 0 20px;
     }
     .background__image{
-        display: block;
+        display: flex;
+        width: 100%;
     }
     .background__image img {
         width: 100%;
         object-fit: cover;
-        height: 232px;
+        height: 100%;
 
     }
 }

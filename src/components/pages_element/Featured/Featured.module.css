@@ -19,13 +19,13 @@ h1{
 }
 .container{
     padding: 80px 40px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 40px; */
 }
 .btn{
-    width: 218px;
-    height: 58px;
+    /* width: 218px;
+    height: 58px; */
     border-radius:  6px;
     background: #393;
     display: flex;
@@ -38,6 +38,8 @@ h1{
     line-height: 130%; /* 26px */
     border: none;
     cursor: pointer;
+    margin-top: 40px;
+
 }
 .btn:hover{
     background-color: #000000;

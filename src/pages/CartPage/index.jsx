@@ -13,7 +13,6 @@ import { IoClose } from "react-icons/io5";
 import { CgClose } from "react-icons/cg";
 import AllProductsBtn from "../../components/UI/AllProductsBtn";
 import { Link, useNavigate } from "react-router-dom";
-import Breadcrumbs from "../../components/UI/Breadcrumbs/Breadcrumbs";
 
 export default function CartPage() {
   //form
@@ -27,6 +26,8 @@ export default function CartPage() {
     reset,
   } = useForm();
   const navigate = useNavigate();
+
+  const cart = useSelector((state) => state.user.cart);
 
   const handleDiscountSubmit = (data) => {
     const formData = {
@@ -54,8 +55,6 @@ export default function CartPage() {
   const handleCloseCongratulations = () => {
     setShowCongratulations(false);
   };
-
-  const cart = useSelector((state) => state.user.cart);
 
   const calculateTotalCount = (cart) => {
     return cart.reduce((total, item) => total + item.quantity, 0);
@@ -88,12 +87,11 @@ export default function CartPage() {
     .toFixed(2);
 
   const totalCount = calculateTotalCount(cart);
-  console.log(cart, "cart....");
 
-  const handleClickCard = (event, id) => {
-    event.stopPropagation();
-    navigate(`/products/${id}`);
-  };
+  // const handleClickCard = (event, productId) => {
+  //   event.stopPropagation();
+  //   navigate(`/products/${productId}`);
+  // };
 
   return (
     <div className={`${s.wrapper} container`}>
@@ -143,12 +141,13 @@ export default function CartPage() {
             <div
               key={item.id}
               className={s.container}
-              onClick={(event) => handleClickCard(event, item.id)}
+              // onClick={(event) => handleClickCard(event, item.productId)}
             >
-              <Link to=""></Link>
-              <div className={s.container__image}>
-                <img src={ROOT_URL + item.image} alt={item.title} />
-              </div>
+              <Link to={`/products/${item.id}`}>
+                <div className={s.container__image}>
+                  <img src={ROOT_URL + item.image} alt={item.title} />
+                </div>
+              </Link>
               <div className={s.product__info}>
                 <div className={s.title}>
                   <h3>{item.title}</h3>
@@ -219,6 +218,7 @@ export default function CartPage() {
                   id="name"
                   type="text"
                   placeholder="Name"
+                  value={undefined}
                   {...register("name", {
                     required: true,
                     minLength: {
@@ -238,6 +238,7 @@ export default function CartPage() {
                   id="phone"
                   type="tel"
                   placeholder="Phone number"
+                  value={undefined}
                   {...register("phone", {
                     required: "The field is required",
                     pattern: {
@@ -255,6 +256,7 @@ export default function CartPage() {
                   id="email"
                   type="email"
                   placeholder="Email"
+                  value={undefined}
                   {...register("email", {
                     required: "The field is required",
                     pattern: {

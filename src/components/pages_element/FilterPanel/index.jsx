@@ -74,7 +74,7 @@ export default function FilterPanel({ hideCheckbox, actions }) {
               <input
                 type="checkbox"
                 checked={categoryFilter}
-                onClick={handleCategoryToggle}
+                onChange={handleCategoryToggle}
               />
               <div className={s.checkbox__checkmark}></div>
             </label>

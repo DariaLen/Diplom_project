@@ -51,6 +51,7 @@ export default function DiscountForm() {
                   id="name"
                   type="text"
                   placeholder="Name"
+                  value={undefined}
                   {...register("name", {
                     required: true,
                     minLength: {
@@ -75,6 +76,7 @@ export default function DiscountForm() {
                   id="phone"
                   type="tel"
                   placeholder="Phone number"
+                  value={undefined}
                   {...register("phone", {
                     required: "The field is required",
                     pattern: {
@@ -94,6 +96,7 @@ export default function DiscountForm() {
                   id="email"
                   type="email"
                   placeholder="Email"
+                  value={undefined}
                   {...register("email", {
                     required: "The field is required",
                     pattern: {

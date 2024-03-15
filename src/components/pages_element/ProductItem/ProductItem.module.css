@@ -190,7 +190,7 @@
 }
   }
 
-  @media screen and (min-width: 480px) and (max-width: 767px){
+  @media screen and (min-width: 481px) and (max-width: 767px){
     .category_wrapper{
         width: 45%;
         margin: 0 auto;
@@ -207,7 +207,7 @@
     }
   }
   
-  @media screen  and (max-width: 479px){
+  @media screen  and (max-width: 480px){
     .category_wrapper{
         width: 100%;
         margin: 0 auto;

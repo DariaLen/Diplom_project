@@ -42,11 +42,12 @@ export default function SingleProductPage({ item, data }) {
     dispatch(getSingleProduct(id));
   }, [dispatch, id]);
 
-  console.log(`SingleProductPage/index.jsx - line: 47 ->> details`, details);
+  const breadcrumbs = useBreadcrumbs(details || {});
 
-  const breadcrumbs = useBreadcrumbs(details);
-
-  if (isLoading) {
+  // if (isLoading) {
+  //   return <p>Loading...</p>;
+  // }
+  if (isLoading || !Array.isArray(details) || details.length === 0) {
     return <p>Loading...</p>;
   }
 
@@ -108,7 +109,6 @@ export default function SingleProductPage({ item, data }) {
                     className={`${s.button} ${isClicked ? s.click : ""}`}
                     onClick={addToCart}
                   >
-                    {" "}
                     Add to cart
                   </button>
                 </div>

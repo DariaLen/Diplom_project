@@ -10,7 +10,6 @@ import { useState } from "react";
 export default function Header() {
   const totalItem = useSelector(selectTotalItemCount);
 
-  // const totalItem = useSelector((state) => state.user.totalItemCount);
   const [nav, setNav] = useState(false);
 
   return (
